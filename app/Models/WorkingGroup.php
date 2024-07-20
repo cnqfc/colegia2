@@ -18,4 +18,14 @@ class WorkingGroup extends Model
         'leader_id',
         'is_active',
     ];
+
+    protected $casts = [
+        'is_open_to_registration' => 'boolean',
+        'is_active' => 'boolean',
+    ];
+
+    public function leader()
+    {
+        return $this->belongsTo(User::class, 'leader_id');
+    }
 }
